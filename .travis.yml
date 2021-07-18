@@ -2,12 +2,10 @@ os: linux
 dist: focal
 language: generic
 
-#env:
-#  - FAILURE_THRESHOLD=1
-
 jobs:
   include:
-    - language: node_js
+    - stage: "Markdown link checks"
+      language: node_js
       node_js: 12
       script:
         - npm install --global remark-cli remark-validate-links
