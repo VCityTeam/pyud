@@ -2,8 +2,8 @@ os: linux
 dist: focal
 language: generic
 
-env:
-  - FAILURE_THRESHOLD=1
+#env:
+#  - FAILURE_THRESHOLD=1
 
 jobs:
   include:
@@ -14,7 +14,8 @@ jobs:
         - npm install --global remark-cli remark-validate-links
         - remark -u validate-links .
         - |
-          export warnings=`remark -u validate-links . 2>&1 | grep warning | grep "Link to unknown" | wc -l` &&
+          export FAILURE_THRESHOLD=1
+          export warnings=`remark -u validate-links . 2>&1 | grep warning | grep "Link to unknown" | wc -l`
           if [ $warnings -gt $FAILURE_THRESHOLD ]; then
             exit 1;
           fi
