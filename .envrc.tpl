@@ -13,4 +13,4 @@
 #  - https://github.com/direnv/direnv
 #  - https://www.stackabuse.com/managing-python-environments-with-direnv-and-pyenv/
 
-layout python3
+layout python python3.8
